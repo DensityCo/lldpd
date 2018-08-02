@@ -957,6 +957,7 @@ iflinux_add_physical(struct lldpd *cfg,
 	const char * const blacklisted_drivers[] = {
 		"cdc_mbim",
 		"vxlan",
+		"rtl8723bu", //density's wifi driver
 		NULL
 	};
 
