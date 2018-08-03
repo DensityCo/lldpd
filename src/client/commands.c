@@ -750,12 +750,14 @@ cmd_iterate_on_ports(struct lldpctl_conn_t *conn, struct cmd_env *env, const cha
 		lldpctl_atom_t *iface = cmd_iterate_on_interfaces(conn, env);
 		if (iface) {
 			*name = lldpctl_atom_get_str(iface, lldpctl_k_interface_name);
+			log_info("lldpdctl","port name: %s",&name);
 			last_port = lldpctl_get_port(iface);
 			return last_port;
 		}
 		if (!interfaces) {
 			put_default = 1;
 			*name = "(default)";
+			log_info("lldpdctl","port name: %s",&name);
 			last_port = lldpctl_get_default_port(conn);
 			return last_port;
 		}
